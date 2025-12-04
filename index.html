@@ -23,29 +23,28 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 10px 20px;
+      padding: 10px 20px; /* Diperkecil dari 40px */
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
 
     header img {
       height: 70px;
-      flex-shrink: 0;
     }
     
-    /* Perbaikan: Kode CSS nav diletakkan di dalam <style> */
     nav { 
       display: flex;
       justify-content: flex-end;
       flex-grow: 1;
-        white-space: nowrap;
+      white-space: nowrap; /* Mencegah menu melipat vertikal */
     }
 
     nav a {
-      margin: 0 10px;
+      margin: 0 8px; /* Margin diperkecil lagi untuk amannya */
       text-decoration: none;
       color: #333;
       font-weight: bold;
-      font-size: 14px;
+      font-size: 14px; /* Font diperkecil */
+      flex-shrink: 0;
     }
 
     nav a:hover {
@@ -119,63 +118,6 @@ section {
       <a href="#kontak">Kontak</a>
     </nav>
   </header>
-
-  <div class="hero">
-    <h1>Selamat Datang di MA AL-HUDA AL-'ULYA</h1>
-    <p>Madrasah dengan komitmen pada pendidikan berkualitas dan berakhlak mulia.</p>
-  </div>
-
-  <section id="profil">
-    <h2>Profil Sekolah</h2>
-    <p>
-      MA AL-HUDA AL-'ULYA merupakan lembaga pendidikan yang berorientasi pada pembentukan generasi berilmu, berakhlak, dan berdaya saing.
-    </p>
-  </section>
-
-  <section id="visi">
-    <h2>Visi & Misi</h2>
-    <p><strong>Visi:</strong> "Mewujudkan Madrasah yang unggul dalam prestasi, disiplin, dan berkarakter Islami."
-    </p>
-    <p><strong>Misi:</strong></p>
-    <ul>
-      <li>Meningkatkan kualitas pembelajaran.</li>
-      <li>Menanamkan nilai-nilai keislaman.</li>
-      <li>Mengembangkan potensi siswa.</li>
-    </ul>
-  </section>
-
-  <section id="struktur">
-    <h2>Struktur Organisasi</h2>
-    <p>Bagan struktur organisasi madrasah dapat ditampilkan di sini.</p>
-  </section>
-
-  <section id="kurikulum">
-    <h2>Kurikulum</h2>
-    <p>Kurikulum menggunakan standar Kementerian Agama serta penguatan karakter Islami.</p>
-  </section>
-
-  <section id="galeri">
-    <h2>Galeri</h2>
-    <div class="gallery">
-      <img src="https://via.placeholder.com/300" />
-      <img src="https://via.placeholder.com/300" />
-      <img src="https://via.placeholder.com/300" />
-    </div>
-  </section>
-
-  <section id="berita">
-    <h2>Berita</h2>
-    <p>Update berita dan kegiatan madrasah akan ditampilkan di sini.</p>
-  </section>
-
-  <section id="kontak">
-    <h2>Kontak</h2>
-    <p>Alamat, nomor telepon, email, dan form kontak dapat ditempatkan di sini.</p>
-  </section>
-
-  <footer>
-    © 2025 MA AL-HUDA AL-'ULYA
-  </footer>
 
 </body>
 </html>
