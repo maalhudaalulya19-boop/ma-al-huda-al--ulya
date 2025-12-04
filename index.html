@@ -23,7 +23,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 10px 30px;
+      padding: 10px 20px;
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
 
@@ -32,10 +32,14 @@
     }
 
     nav a {
+      display: flex;
+    justify-content: flex-end; 
+    flex-grow: 1;
       margin: 0 10px;
       text-decoration: none;
       color: #333;
       font-weight: bold;
+      font-size: 14px;
     }
 
     nav a:hover {
@@ -94,6 +98,11 @@ section {
       margin-top: 40px;
     }
   </style>
+  nav {
+    display: flex;
+    justify-content: flex-end; /* Memastikan menu rata kanan */
+    flex-grow: 1; /* Memungkinkan <nav> mengambil semua ruang yang tersisa di header */
+}
 </head>
 <body>
 
