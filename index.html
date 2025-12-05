@@ -8,21 +8,41 @@
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background-color: #f7f2e8; /* cream */
+            background-color: #f7f2e8; 
             color: #333;
         }
         header {
             background-color: #e5d7bd;
             padding: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
             position: fixed;
             top: 0;
             width: 100%;
             z-index: 1000;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+
+            display: flex;
+            align-items: center;
+            position: relative;
         }
+
+        .judul-header {
+        font-size: 32px;
+        font-weight: 800;
+        font-family: "Georgia", serif;
+        letter-spacing: 1px;
+        color: #2c1f0f;
+        text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    nav {
+        position: absolute;
+        right: 20px;
+        top: 10px;
+    }
         header img {
             height: 60px;
         }
