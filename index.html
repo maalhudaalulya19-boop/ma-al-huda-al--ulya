@@ -25,7 +25,6 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap;
         }
 
         .judul-header {
@@ -43,7 +42,7 @@
         margin-left: auto;
     }
         header img {
-            height: 60px;
+            height: 55px;
         }
         .judul-header {
         font-size: 32px;
@@ -72,6 +71,27 @@
             color: #333;
             font-weight: bold;
         }
+        .menu-toggle {
+            display: none;
+            font-size: 28px;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+    
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
         /* Dropdown */
         .dropdown-content {
             display: none;
@@ -80,12 +100,9 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
             padding: 10px;
             border-radius: 8px;
-            top: 40px;
-            left: 0;
-            min-width: 150px;
         }
         section {
-            padding-top: 150px;
+            padding-top: 140px;
             padding-left: 20px;
             padding-right: 20px;
             max-width: 1000px;
@@ -103,12 +120,21 @@
         }
          @media (max-width: 768px) {
             header {
-                flex-direction: column;
-                align-items: center;
-                padding: 10px 20px;
-            }
+                flex-wrap: wrap;
+        }
             .judul-header {
                 font-size: 24px;
+            }
+             .menu-toggle {
+                display: block;
+            }
+             nav {
+                display: none;
+                width: 100%;
+                margin-top: 10px;
+            }
+             nav.active {
+                display: block;
             }
             nav ul {
                 flex-direction: column;
@@ -131,13 +157,14 @@
                 top: 0;
                 left: 0;
                 box-shadow: none;
+            section {
+                padding-top: 220px;
             }
         }
     </style>
 <script>
-    function toggleDropdown() {
-        const menu = document.getElementById('dropdown-menu');
-        menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+    function toggleMenu() {
+        document.querySelector('nav').classList.toggle('active');
     }
 </script>
 </head>
@@ -145,6 +172,8 @@
 <header>
     <img src="MA_2-.png" alt="MA_2-.png">
     <h1 class="judul-header">MA AL-HUDA AL-'ULYA</h1>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    
     <nav>
         <ul>
             <li><a href="#profil">Profil</a></li>
