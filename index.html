@@ -23,6 +23,7 @@
             z-index: 1000;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             display: flex;
+            flex-direction: column;
             justify-content: space-between;
             align-items: center;
         }
@@ -190,13 +191,13 @@
 </head>
 <body>
 <header>
-      <div class="header-left">
-        <img src="MA_2-.png" alt="Logo">
+      <div class="header-top">
+        <img src="MA_2-.png" alt="Logo" class="logo">
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
     </div>
     
-     <h1 class="judul-header">MA AL-HUDA AL-'ULYA</h1>
+    <h1 class="judul-header">MA AL-HUDA AL-'ULYA</h1>
     
-    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
     
     <nav>
         <ul>
