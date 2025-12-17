@@ -157,6 +157,8 @@
                 top: 0;
                 left: 0;
                 box-shadow: none;
+            }
+             
             section {
                 padding-top: 220px;
             }
@@ -165,6 +167,11 @@
 <script>
     function toggleMenu() {
         document.querySelector('nav').classList.toggle('active');
+    }
+
+    function toggleDropdown() {
+    const menu = document.getElementById('dropdown-menu');
+    menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
     }
 </script>
 </head>
@@ -180,7 +187,8 @@
             <li><a href="#visi-misi">Visi Misi</a></li>
             <li><a href="#struktur">Struktur</a></li>
             <li><a href="#kurikulum">Kurikulum</a></li>
-            <li class="dropdown" onclick="toggleDropdown()" style="cursor:pointer;">
+            <li class="dropdown">
+                <a href="javascript:void(0)" onclick="toggleDropdown()">Lainnya ▾</a>
                 <a>Lainnya ▾</a>
                 <div id="dropdown-menu" class="dropdown-content">
                     <a href="#galeri">Galeri</a><br>
