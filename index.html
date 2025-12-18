@@ -108,7 +108,9 @@
         .nav-desktop {
               display: flex;
         }
-
+        .menu-toggle {
+              display: none;
+        }
         .nav-mobile {
               display: none;
         }
@@ -128,7 +130,7 @@
             .menu-toggle {
                 display: block;
             }
-            nav {
+            nav-mobile {
                 display: none;
                 width: 100%;
             }
@@ -163,26 +165,41 @@
           
         <!-- MENU DESKTOP -->
     <nav class="nav-desktop">
-    
+      <ul>
+        <li><a href="#profil">Profil</a></li>
+        <li><a href="#visi-misi">Visi Misi</a></li>
+        <li><a href="#struktur">Struktur</a></li>
+        <li><a href="#kurikulum">Kurikulum</a></li>
+        <li class="dropdown">
+          <a href="javascript:void(0)" onclick="toggleDropdown()">Lainnya ▾</a>
+          <div class="dropdown-content">
+            <a href="#galeri">Galeri</a><br>
+            <a href="#berita">Berita</a><br>
+            <a href="#kontak">Kontak</a>
+          </div>
+        </li>
+      </ul>
     </nav>
+
       <!-- TOMBOL MOBILE -->
         <button class="menu-toggle" onclick="toggleMenu()">☰</button>
       </div>
     
     <h1 class="judul-header">MA AL-HUDA AL-'ULYA</h1>
     
-    <nav class="nav-mobile">
-        <ul>
-          <li><a href="#profil">Profil</a></li>
-          <li><a href="#visi-misi">Visi Misi</a></li>
-          <li><a href="#struktur">Struktur</a></li>
-          <li><a href="#kurikulum">Kurikulum</a></li>
-            <li class="dropdown">
-                <a href="javascript:void(0)" onclick="toggleDropdown()">Lainnya ▾</a>
-                <div id="dropdown-menu" class="dropdown-content">
-                    <a href="#galeri">Galeri</a><br>
-                    <a href="#berita">Berita</a><br>
-                    <a href="#kontak">Kontak</a>
+     <!-- MENU MOBILE -->
+  <nav class="nav-mobile">
+    <ul>
+      <li><a href="#profil">Profil</a></li>
+      <li><a href="#visi-misi">Visi Misi</a></li>
+      <li><a href="#struktur">Struktur</a></li>
+      <li><a href="#kurikulum">Kurikulum</a></li>
+      <li class="dropdown">
+            <a href="javascript:void(0)" onclick="toggleDropdown()">Lainnya ▾</a>
+            <div class="dropdown-content">
+                  <a href="#galeri">Galeri</a><br>
+                  <a href="#berita">Berita</a><br>
+                  <a href="#kontak">Kontak</a>
                 </div>   
             </li>
         </ul>
