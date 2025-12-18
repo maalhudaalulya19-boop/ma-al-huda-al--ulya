@@ -27,7 +27,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 20px 40px;
+            
         }
         .logo {
           height: 55px;
@@ -104,7 +104,15 @@
             background-color: #e5d7bd;
             margin-top: 40px;
         }
-         @media (max-width: 768px) {
+        @media (min-width: 769px) {
+          nav {
+            display: block;
+          }
+      .menu-toggle {
+            display: none;
+          }
+        }
+        @media (max-width: 768px) {
             .menu-toggle {
                 display: block;
             }
@@ -143,9 +151,6 @@
         <button class="menu-toggle" onclick="toggleMenu()">☰</button>
       </div>
     
-    <h1 class="judul-header">MA AL-HUDA AL-'ULYA</h1>
-    
-    
     <nav>
         <ul>
             <li><a href="#profil">Profil</a></li>
@@ -159,6 +164,7 @@
                     <a href="#berita">Berita</a><br>
                     <a href="#kontak">Kontak</a>
                 </div>
+                 <h1 class="judul-header">MA AL-HUDA AL-'ULYA</h1>
             </li>
         </ul>
     </nav>
