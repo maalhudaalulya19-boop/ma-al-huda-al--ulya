@@ -105,12 +105,23 @@
             background-color: #e5d7bd;
             margin-top: 40px;
         }
+        .nav-desktop {
+              display: flex;
+        }
+
+        .nav-mobile {
+              display: none;
+        }
         @media (min-width: 769px) {
           nav {
             display: block;
           }
       .menu-toggle {
             display: none;
+          }
+        
+        .nav-mobile.active {
+            display: block;
           }
         }
         @media (max-width: 768px) {
@@ -136,7 +147,7 @@
     </style>
 <script>
     function toggleMenu() {
-        document.querySelector('nav').classList.toggle('active');
+        document.querySelector('.nav-mobile').classList.toggle('active');
     }
 
     function toggleDropdown() {
@@ -150,16 +161,27 @@
       <div class="header-inner">
         <img src="MA_2-.png" alt="Logo" class="logo">
           
-        <nav class="nav-desktop">
+        <!-- MENU DESKTOP -->
+    <nav class="nav-desktop">
+      <ul>
+        <li><a href="#profil">Profil</a></li>
+        <li><a href="#visi-misi">Visi Misi</a></li>
+        <li><a href="#struktur">Struktur</a></li>
+        <li><a href="#kurikulum">Kurikulum</a></li>
+      </ul>
+    </nav>
+      <!-- TOMBOL MOBILE -->
         <button class="menu-toggle" onclick="toggleMenu()">☰</button>
       </div>
+    
     <h1 class="judul-header">MA AL-HUDA AL-'ULYA</h1>
-    <nav>
+    
+    <nav class="nav-mobile">
         <ul>
-            <li><a href="#profil">Profil</a></li>
-            <li><a href="#visi-misi">Visi Misi</a></li>
-            <li><a href="#struktur">Struktur</a></li>
-            <li><a href="#kurikulum">Kurikulum</a></li>
+          <li><a href="#profil">Profil</a></li>
+          <li><a href="#visi-misi">Visi Misi</a></li>
+          <li><a href="#struktur">Struktur</a></li>
+          <li><a href="#kurikulum">Kurikulum</a></li>
             <li class="dropdown">
                 <a href="javascript:void(0)" onclick="toggleDropdown()">Lainnya ▾</a>
                 <div id="dropdown-menu" class="dropdown-content">
