@@ -105,7 +105,6 @@
             background-color: #e5d7bd;
             margin-top: 40px;
             }
-        }
         .menu-toggle {
               display: none;
         }
@@ -128,8 +127,8 @@
             .menu-toggle {
                 display: block;
             }
-            .nav-desktop { 
-                display: none; 
+            .nav-desktop .dropdown:hover .dropdown-content{ 
+                display: block; 
             }
             .nav-mobile {
                 display: none;
@@ -153,10 +152,11 @@
         document.querySelector('.nav-mobile').classList.toggle('active');
     }
 
-    function toggleDropdown() {
-    const menu = document.getElementById('dropdown-menu');
-    menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
-    }
+    function toggleDropdown(el) {
+    const dropdown = el.nextElementSibling;
+    dropdown.style.display = 
+        dropdown.style.display === 'block' ? 'none' : 'block';
+    } 
 </script>
 </head>
 <body>
@@ -172,7 +172,7 @@
         <li><a href="#struktur">Struktur</a></li>
         <li><a href="#kurikulum">Kurikulum</a></li>
         <li class="dropdown">
-          <a href="javascript:void(0)" onclick="toggleDropdown()">Lainnya ▾</a>
+          <a href="#">Lainnya ▾</a>
           <div class="dropdown-content">
             <a href="#galeri">Galeri</a><br>
             <a href="#berita">Berita</a><br>
@@ -196,7 +196,7 @@
       <li><a href="#struktur">Struktur</a></li>
       <li><a href="#kurikulum">Kurikulum</a></li>
       <li class="dropdown">
-            <a href="javascript:void(0)" onclick="toggleDropdown()">Lainnya ▾</a>
+            <a href="javascript:void(0)" onclick="toggleDropdown(this)">Lainnya ▾</a>
             <div class="dropdown-content">
                   <a href="#galeri">Galeri</a><br>
                   <a href="#berita">Berita</a><br>
