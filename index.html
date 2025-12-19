@@ -5,6 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MA AL-HUDA AL-'ULYA</title>
     <style>
+        .hero {
+            margin-top: 95px; /* kira-kira tinggi header kamu */
+            height: 260px;
+            background: 
+                linear-gradient(rgba(0,0,0,.4), rgba(0,0,0,.4)),
+                url('foto-header.jpg') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero h1 {
+            color: #fff;
+            font-size: 32px;
+            font-family: Georgia, serif;
+            margin: 0;
+        }
         * {
             box-sizing: border-box;
         }
@@ -139,7 +157,7 @@
                 left: 0;
                 width: 100%;
                 background: #f7f2e8;
-                z-index: 999;
+                z-index: 1100;
             }
             nav.active {
                 display: block;
@@ -150,7 +168,7 @@
                 padding: 10px 0;
             }
             section {
-                padding-top: 220px;
+                padding: 40px 20px;
             }
         }
     </style>
@@ -192,10 +210,6 @@
       <!-- TOMBOL MOBILE -->
         <button class="menu-toggle" onclick="toggleMenu()">☰</button>
       </div>
-    
-    <div class="hero">
-        <h1>MA AL-HUDA AL-'ULYA</h1>
-    </div>
 </header>
      <!-- MENU MOBILE -->
   <nav class="nav-mobile">
@@ -214,24 +228,9 @@
             </li>
         </ul>
     </nav>
-.hero {
-    margin-top: 95px; /* kira-kira tinggi header kamu */
-    height: 260px;
-    background: 
-        linear-gradient(rgba(0,0,0,.4), rgba(0,0,0,.4)),
-        url('foto-header.jpg') center/cover no-repeat;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
-
-.hero h1 {
-    color: #fff;
-    font-size: 32px;
-    font-family: Georgia, serif;
-    margin: 0;
-}
+    <section class="hero">
+        <h1>MA AL-HUDA AL-'ULYA</h1>
+</section>
 <section id="profil">
     <h2>Profil Sekolah</h2>
     <p>MA AL-HUDA AL-'ULYA adalah lembaga pendidikan berbasis boarding school yang berorientasi pada pembentukan karakter religius, akademik unggul, dan kedisiplinan santri. Dengan suasana lingkungan yang agamis dan penuh nilai-nilai islami, sekolah ini berkomitmen mencetak generasi berakhlak mulia dan berprestasi.</p>
