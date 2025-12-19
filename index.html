@@ -227,7 +227,7 @@
       <li><a href="#struktur">Struktur</a></li>
       <li><a href="#kurikulum">Kurikulum</a></li>
       <li class="dropdown">
-            <a href="javascript:void(0)" onclick="toggleDropdown(this)">Lainnya ▾</a>
+            <a href="#" onclick="toggleDropdown(event, this)">Lainnya ▾</a>
             <div class="dropdown-content">
                   <a href="#galeri">Galeri</a><br>
                   <a href="#berita">Berita</a><br>
@@ -293,27 +293,18 @@
     e.stopPropagation();
     mobileMenu.classList.toggle("active");
   });
-
-  // klik di luar menu → tutup
-  document.addEventListener("click", function (e) {
-    if (
-      mobileMenu.classList.contains("active") &&
-      !mobileMenu.contains(e.target) &&
-      !menuToggle.contains(e.target)
-    ) {
-      mobileMenu.classList.remove("active");
-    }
+    // klik di luar → tutup menu
+  document.addEventListener("click", function () {
+    mobileMenu.classList.remove("active");
+  });
+// klik DI DALAM menu → jangan tutup
+  mobileMenu.addEventListener("click", function (e) {
+    e.stopPropagation();
   });
 
-  // klik item menu → tutup
-  mobileMenu.querySelectorAll("a").forEach(link => {
-    link.addEventListener("click", () => {
-      mobileMenu.classList.remove("active");
-    });
-  });
-
-  // dropdown mobile
-  function toggleDropdown(el) {
+  function toggleDropdown(e, el) {
+    e.preventDefault();
+    e.stopPropagation(); // INI KUNCI UTAMA
     const dropdown = el.nextElementSibling;
     dropdown.style.display =
       dropdown.style.display === "block" ? "none" : "block";
