@@ -189,15 +189,33 @@
         }
     </style>
 <script>
-    function toggleMenu() {
-        document.querySelector('.nav-mobile').classList.toggle('active');
-    }
+    <script>
+      const menuToggle = document.getElementById("menuToggle");
+      const mobileMenu = document.getElementById("mobileMenu");
 
-    function toggleDropdown(el) {
-    const dropdown = el.nextElementSibling;
-    dropdown.style.display = 
-        dropdown.style.display === 'block' ? 'none' : 'block';
-    } 
+      // buka / tutup via tombol ☰
+      menuToggle.addEventListener("click", function (e) {
+        e.stopPropagation(); // penting!
+        mobileMenu.classList.toggle("active");
+      });
+
+      // klik di luar menu → tutup
+      document.addEventListener("click", function (e) {
+        if (
+          mobileMenu.classList.contains("active") &&
+          !mobileMenu.contains(e.target) &&
+          !menuToggle.contains(e.target)
+        ) {
+          mobileMenu.classList.remove("active");
+        }
+      });
+
+      // klik item menu → tutup
+      mobileMenu.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.remove("active");
+        });
+      }); 
 </script>
 </head>
 <body>
@@ -224,11 +242,11 @@
     </nav>
 
       <!-- TOMBOL MOBILE -->
-        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        <button class="menu-toggle" id="menuToggle">☰</button>
       </div>
 </header>
      <!-- MENU MOBILE -->
-  <nav class="nav-mobile">
+  <nav class="nav-mobile" id="mobileMenu">
     <ul>
       <li><a href="#profil">Profil</a></li>
       <li><a href="#visi-misi">Visi Misi</a></li>
