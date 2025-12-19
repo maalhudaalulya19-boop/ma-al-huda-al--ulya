@@ -189,33 +189,7 @@
         }
     </style>
 <script>
-    <script>
-      const menuToggle = document.getElementById("menuToggle");
-      const mobileMenu = document.getElementById("mobileMenu");
-
-      // buka / tutup via tombol ☰
-      menuToggle.addEventListener("click", function (e) {
-        e.stopPropagation(); // penting!
-        mobileMenu.classList.toggle("active");
-      });
-
-      // klik di luar menu → tutup
-      document.addEventListener("click", function (e) {
-        if (
-          mobileMenu.classList.contains("active") &&
-          !mobileMenu.contains(e.target) &&
-          !menuToggle.contains(e.target)
-        ) {
-          mobileMenu.classList.remove("active");
-        }
-      });
-
-      // klik item menu → tutup
-      mobileMenu.querySelectorAll("a").forEach(link => {
-        link.addEventListener("click", () => {
-          mobileMenu.classList.remove("active");
-        });
-      }); 
+    
 </script>
 </head>
 <body>
@@ -310,6 +284,40 @@
 <footer>
     © 2025 MA AL-HUDA AL-'ULYA | All copyrights are protected by Allah
 </footer>
+    <script>
+  const menuToggle = document.getElementById("menuToggle");
+  const mobileMenu = document.getElementById("mobileMenu");
 
+  // buka / tutup menu
+  menuToggle.addEventListener("click", function (e) {
+    e.stopPropagation();
+    mobileMenu.classList.toggle("active");
+  });
+
+  // klik di luar menu → tutup
+  document.addEventListener("click", function (e) {
+    if (
+      mobileMenu.classList.contains("active") &&
+      !mobileMenu.contains(e.target) &&
+      !menuToggle.contains(e.target)
+    ) {
+      mobileMenu.classList.remove("active");
+    }
+  });
+
+  // klik item menu → tutup
+  mobileMenu.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => {
+      mobileMenu.classList.remove("active");
+    });
+  });
+
+  // dropdown mobile
+  function toggleDropdown(el) {
+    const dropdown = el.nextElementSibling;
+    dropdown.style.display =
+      dropdown.style.display === "block" ? "none" : "block";
+  }
+</script>
 </body>
 </html>
