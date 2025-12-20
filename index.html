@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="id">
 <head>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
@@ -227,13 +227,13 @@
       <li><a href="#struktur">Struktur</a></li>
       <li><a href="#kurikulum">Kurikulum</a></li>
       <li class="dropdown">
-            <a href="#" onclick="toggleDropdown(event, this)">Lainnya ▾</a>
-            <div class="dropdown-content">
-                  <a href="#galeri">Galeri</a><br>
-                  <a href="#berita">Berita</a><br>
-                  <a href="#kontak">Kontak</a>
-                </div>   
-            </li>
+          <a href="#" onclick="toggleDropdown(event, this)">Lainnya ▾</a>
+          <div class="dropdown-content mobile-dropdown">
+            <a href="#galeri">Galeri</a><br>
+            <a href="#berita">Berita</a><br>
+            <a href="#kontak">Kontak</a>
+          </div>
+        </li>
         </ul>
     </nav>
     <section class="hero">
@@ -287,27 +287,41 @@
     <script>
   const menuToggle = document.getElementById("menuToggle");
   const mobileMenu = document.getElementById("mobileMenu");
-
-  // buka / tutup menu
+  const mobileDropdowns = document.querySelectorAll(".mobile-dropdown");
+        
+function closeAllDropdowns() {
+    mobileDropdowns.forEach(drop => {
+      drop.style.display = "none";
+    });
+  }
+  // toggle menu ☰
   menuToggle.addEventListener("click", function (e) {
     e.stopPropagation();
-    mobileMenu.classList.toggle("active");
+
+    const isOpen = mobileMenu.classList.contains("active");
+
+    if (isOpen) {
+      mobileMenu.classList.remove("active");
+      closeAllDropdowns(); // ← RESET SUBMENU
+    } else {
+      mobileMenu.classList.add("active");
+    }
   });
-    // klik di luar → tutup menu
-  document.addEventListener("click", function () {
-    mobileMenu.classList.remove("active");
-  });
-// klik DI DALAM menu → jangan tutup
+     // klik di dalam menu jangan tutup
   mobileMenu.addEventListener("click", function (e) {
     e.stopPropagation();
   });
-
-  function toggleDropdown(e, el) {
+function toggleDropdown(e, el) {
     e.preventDefault();
-    e.stopPropagation(); // INI KUNCI UTAMA
+    e.stopPropagation();
+
     const dropdown = el.nextElementSibling;
-    dropdown.style.display =
-      dropdown.style.display === "block" ? "none" : "block";
+    const isOpen = dropdown.style.display === "block";
+
+    closeAllDropdowns(); // tutup semua dulu
+    if (!isOpen) {
+      dropdown.style.display = "block";
+    }
   }
 </script>
 </body>
