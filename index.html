@@ -311,14 +311,22 @@ function closeAllDropdowns() {
   mobileMenu.addEventListener("click", function (e) {
     e.stopPropagation();
   });
-function toggleDropdown(e, el) {
+      // fiks klik asal
+document.addEventListener("click", function () {
+    if (mobileMenu.classList.contains("active")) {
+      mobileMenu.classList.remove("active");
+      closeAllDropdowns();
+    }
+  });
+
+  function toggleDropdown(e, el) {
     e.preventDefault();
     e.stopPropagation();
 
     const dropdown = el.nextElementSibling;
     const isOpen = dropdown.style.display === "block";
 
-    closeAllDropdowns(); // tutup semua dulu
+    closeAllDropdowns();
     if (!isOpen) {
       dropdown.style.display = "block";
     }
