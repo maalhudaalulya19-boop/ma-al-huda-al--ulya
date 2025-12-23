@@ -115,24 +115,39 @@
             padding: 40px 20px;
             padding-left: 20px;
             padding-right: 20px;
-            max-width: 1000px;
             margin: auto;
         }
         section {
             scroll-margin-top: 110px; /* tinggi header + jarak aman */
         }
-        h2 :before {
-            font-family: "Poppins", Arial, sans-serif;
-            text-align: center;
-            color: #3d2f1b;
-            content: "";
-            display: block;
-            width: 60px;
-            height: 4px;
-            background: #3d2f1b;
-            margin: 0 auto 12px;
-            border-radius: 2px;
+     /* SECTION SEBAGAI BACKGROUND */
+        section {
+          padding: 60px 20px;
+          scroll-margin-top: 110px;
         }
+
+      /* ISI DI TENGAH */
+        .container {
+           max-width: 1000px;
+           margin: auto;
+        }
+        /* JUDUL */
+         h2 {
+           font-family: "Poppins", Arial, sans-serif;
+           text-align: center;
+           color: #3d2f1b;
+           margin-bottom: 20px;
+        }
+
+        h2::before {
+           content: "";
+           display: block;
+           width: 60px;
+           height: 4px;
+           background: #3d2f1b;
+           margin: 0 auto 12px;
+           border-radius: 2px;
+       }
         footer {
             text-align: center;
             padding: 20px;
@@ -266,14 +281,52 @@
         <li>Mengembangkan lingkungan boarding school yang nyaman dan edukatif.</li>
     </ul>
 </section>
- <section id="profil" class="section-light">
+  <section id="profil" class="section-light">
+  <div class="container">
+    <h2>Profil Sekolah</h2>
+    <p>MA AL-HUDA AL-'ULYA adalah lembaga pendidikan berbasis boarding school...</p>
+  </div>
+</section>
  <section id="visi-misi" class="section-white">
+  <div class="container">
+    <h2>Visi & Misi</h2>
+    <p><strong>Visi:</strong> Mewujudkan madrasah unggul...</p>
+    <ul>
+      <li>Menanamkan nilai keislaman</li>
+      <li>Meningkatkan kompetensi</li>
+    </ul>
+  </div>
+</section>
  <section id="struktur" class="section-soft">
+  <div class="container">
+    <h2>Struktur Organisasi</h2>
+    <p>Struktur organisasi dapat ditampilkan dalam bentuk gambar atau tabel.</p>
+  </div>
+</section>
  <section id="kurikulum" class="section-light">
+  <div class="container">
+    <h2>Kurikulum</h2>
+    <p>Kurikulum mengintegrasikan kurikulum nasional dan pesantren.</p>
+  </div>
+</section>
  <section id="galeri" class="section-white">
+  <div class="container">
+    <h2>Galeri</h2>
+    <p>Foto kegiatan dan fasilitas.</p>
+  </div>
+</section>
  <section id="berita" class="section-soft">
+  <div class="container">
+    <h2>Berita</h2>
+    <p>Berita terbaru sekolah.</p>
+  </div>
+</section>
  <section id="kontak" class="section-light">
- <section id="struktur">
+  <div class="container">
+    <h2>Kontak</h2>
+    <p>Alamat dan kontak sekolah.</p>
+  </div>
+</section>
     <h2>Struktur Organisasi</h2>
     <p>Struktur organisasi dapat ditampilkan dalam bentuk gambar atau tabel sesuai kebutuhan Anda.</p>
 </section>
