@@ -371,12 +371,14 @@ document.addEventListener("click", function () {
       dropdown.style.display = "block";
     }
   }
-     // Tutup menu mobile & dropdown saat menu lain diklik di HP
-document.querySelectorAll("#mobileMenu a").forEach(link => {
-  link.addEventListener("click", () => {
-    closeAllDropdowns(); // tutup dropdown lainnya
-    mobileMenu.classList.remove("active"); // sembunyikan menu mobile
-  });
+     // Tutup menu mobile saat link section diklik, KECUALI tombol dropdown toggle "Lainnya"
+document.querySelectorAll("#mobileMenu > ul > li > a").forEach(link => {
+  if (!link.hasAttribute("onclick")) { // ← abaikan tombol "Lainnya"
+    link.addEventListener("click", () => {
+      closeAllDropdowns();
+      mobileMenu.classList.remove("active");
+    });
+  }
 });
 </script>
 </body>
