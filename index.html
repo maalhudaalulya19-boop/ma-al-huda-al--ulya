@@ -363,7 +363,7 @@ document.addEventListener("click", function () {
     e.preventDefault();
     e.stopPropagation();
 
-    const dropdown = el.nextElementSibling;
+    const dropdown = el.parentElement.querySelector(".mobile-dropdown");
     const isOpen = dropdown.style.display === "block";
 
     closeAllDropdowns();
@@ -371,6 +371,13 @@ document.addEventListener("click", function () {
       dropdown.style.display = "block";
     }
   }
+     // Tutup menu mobile & dropdown saat menu lain diklik di HP
+document.querySelectorAll("#mobileMenu a").forEach(link => {
+  link.addEventListener("click", () => {
+    closeAllDropdowns(); // tutup dropdown lainnya
+    mobileMenu.classList.remove("active"); // sembunyikan menu mobile
+  });
+});
 </script>
 </body>
 </html>
