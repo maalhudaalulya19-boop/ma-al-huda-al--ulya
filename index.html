@@ -8,6 +8,17 @@
     <title>MA AL-HUDA AL-'ULYA</title>
  <link rel="icon" type="image/png" href="MA_2-.png">
     <style>
+     /* GENERAL */
+    * {box-sizing: border-box;}
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0; padding: 0;
+      line-height: 1.6;
+      color: #333;
+      background: #f7f2e8;
+    }
+
+    a { text-decoration: none; color: inherit;}
      .section-light { background-color: #f7f2e8; }
      .section-white { background-color: #ffffff; }
      .section-soft  { background-color: #efe4cc; }
@@ -21,14 +32,20 @@
             align-items: center;
             justify-content: center;
             text-align: center;
+         padding: 0 20px;
         }
 
         .hero h1 {
             color: #fff;
-            font-size: 32px;
+            font-size: 3rem;
             font-family: "Playfair Display",Georgia, serif;
             margin: 0;
         }
+     .hero p {
+      color: #fff;
+      font-size: 1.2rem;
+      margin-top: 8px;
+    }
         * {
             box-sizing: border-box;
         }
@@ -42,11 +59,16 @@
             background-color: #e5d7bd;
             padding: 20px 40px;
             position: fixed;
-            top: 0;
+            top: 0; left: 0; right: 0;
             width: 100%;
             z-index: 1000;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+         justify-content: space-between;
+         align-items: center;
         }
+     header img { height: 55px; }
+    nav { display: flex; gap: 20px; }
+    nav a:hover { color: #1572e8; font-weight: 600; }
         .header-inner {
             display: flex;
             align-items: center;
@@ -125,6 +147,7 @@
         section {
           padding: 60px 20px;
           scroll-margin-top: 110px;
+         text-align: center;
         }
 
       /* ISI DI TENGAH */
@@ -142,6 +165,43 @@
   font-weight: 700;
   letter-spacing: 1px;
         }
+     /* PROGRAM UNGGULAN */
+    .program-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+    .program-card {
+      background: white;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      width: 300px;
+    }
+    .program-card h3 { font-size: 1.2rem; margin-bottom: 8px; }
+     
+     /* BERITA */
+    .berita-list {
+      display: grid;
+      gap: 24px;
+      grid-template-columns: repeat(auto-fill, minmax(280px,1fr));
+    }
+    .berita-card {
+      background: white;
+      border-radius: 8px;
+      padding: 18px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+      text-align: left;
+    }
+    .berita-card h4 {
+      font-size: 1.15rem;
+      margin-bottom: 5px;
+      font-weight: 600;
+    }
+    .berita-card p { font-size: 0.95rem; color: #4a4a4a; }
+     
+     /* FOOTER */
         footer {
             text-align: center;
             padding: 20px;
@@ -210,6 +270,7 @@
     </style>
 </head>
 <body>
+ <!-- HEADER NAVBAR -->
 <header>
       <div class="header-inner">
         <img src="MA_2-.png" alt="Logo" class="logo">
@@ -253,13 +314,40 @@
         </li>
         </ul>
     </nav>
-    <section class="hero">
-        <h1>MA AL-HUDA AL-'ULYA</h1>
+    <!-- HERO -->
+<section class="hero">
+  <div>
+    <h1>MA AL-HUDA AL-'ULYA</h1>
+    <p>Unggul, Religius & Berprestasi — Siap Mencetak Generasi Masa Depan</p>
+  </div>
 </section>
+
+ <!-- PROFIL SEKOLAH -->
   <section id="profil" class="section-light">
   <div class="container">
     <h2>Profil Sekolah</h2>
     <p>MA AL-HUDA AL-'ULYA adalah lembaga pendidikan berbasis boarding school yang berorientasi pada pembentukan karakter religius, akademik unggul, dan kedisiplinan santri. Dengan suasana lingkungan yang agamis dan penuh nilai-nilai islami, sekolah ini berkomitmen mencetak generasi berakhlak mulia dan berprestasi.</p>
+  </div>
+</section>
+
+ <!-- PROGRAM UNGGULAN -->
+<section id="program">
+  <div class="container">
+    <h2>Program Unggulan</h2>
+    <div class="program-list">
+      <div class="program-card">
+        <h3>IPTEK & IMTAK</h3>
+        <p>Integrasi ilmu pengetahuan umum dengan nilai agama secara seimbang.</p>
+      </div>
+      <div class="program-card">
+        <h3>Tahfidz & Diniyah</h3>
+        <p>Program hafalan Al-Qur’an dan kajian kitab kuning intensif.</p>
+      </div>
+      <div class="program-card">
+        <h3>Ekstrakurikuler</h3>
+        <p>Kegiatan seni, olahraga, leadership dan lain-lain.</p>
+      </div>
+    </div>
   </div>
 </section>
  
@@ -296,21 +384,32 @@
     <p>Bagian ini dapat diisi foto-foto kegiatan, fasilitas, dan dokumentasi sekolah.</p>
   </div>
 </section>
- 
- <section id="berita" class="section-soft">
+
+<!-- BERITA TERBARU -->
+<section id="berita">
   <div class="container">
-    <h2>Berita</h2>
-    <p>Halaman berita berisi kegiatan terkini dan informasi penting terkait sekolah.</p>
+    <h2>Berita Terbaru</h2>
+    <div class="berita-list">
+      <!-- Contoh Berita (update nanti dari CMS) -->
+      <div class="berita-card">
+        <h4>Semarak Maulid Nabi dan Lomba Asyroqol</h4>
+        <p>MAN 1 Kota Semarang gelar lomba Asyroqol dan Khitobah untuk memperingati Maulid Nabi 1447 H.</p>
+      </div>
+      <div class="berita-card">
+        <h4>Siswa Lolos OSN Tingkat Provinsi</h4>
+        <p>Empat siswa berhasil lolos ke OSN Jawa Tengah 2025 dan menunjukkan prestasi luar biasa.</p>
+      </div>
+    </div>
   </div>
 </section>
  
- <section id="kontak" class="section-light">
+ <!-- KONTAK -->
+<section id="kontak">
   <div class="container">
     <h2>Kontak</h2>
-    <p>Alamat, nomor telepon, email, dan lokasi dapat diletakkan di sini.</p>
+    <p>Jl. Jalan Arteri Dsn. Pulo Rt. 03 Rw. 04 Ds. Putat Kec. Purwodadi Kab Grobogan. | 📞 +62 823-2412-8887 | 📧 ma.alhudaalulya19@gmail.com</p>
   </div>
 </section>
-
 <footer>
     © 2025 MA AL-HUDA AL-'ULYA | All copyrights are protected by Allah
 </footer>
