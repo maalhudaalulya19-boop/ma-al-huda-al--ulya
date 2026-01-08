@@ -266,6 +266,17 @@
             section {
                 padding: 40px 20px;
             }
+         /* Menu mobile default tertutup */
+#mobileMenu {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.3s ease-out;
+}
+
+/* Saat menu dibuka */
+#mobileMenu.active {
+  max-height: 400px;
+}
         }
     </style>
 </head>
@@ -419,23 +430,21 @@
   const mobileDropdowns = document.querySelectorAll(".mobile-dropdown");
         
 function closeAllDropdowns() {
-    mobileDropdowns.forEach(drop => {
-      drop.style.display = "none";
-    });
-  }
-  // toggle menu ☰
+  mobileDropdowns.forEach(drop => drop.style.display = "none");
+}
+  // toggle menu ☰ dengan animasi slide
   menuToggle.addEventListener("click", function (e) {
   e.stopPropagation();
-  mobileMenu.classList.toggle("active");
+  const isOpen = mobileMenu.classList.contains("active");
+
+  if (isOpen) {
+    mobileMenu.classList.remove("active");
+    closeAllDropdowns();
+  } else {
+    mobileMenu.classList.add("active");
+  }
 });
    
-   /* MOBILE NAV */
-#mobileMenu {
-  overflow: hidden;
-  max-height: 0; /* default tertutup */
-  transition: max-height 0.3s ease-out;
-}
-
 /* saat aktif (menu terbuka) */
 #mobileMenu.active {
   max-height: 400px; /* cukup untuk tampung item menu */
@@ -468,10 +477,10 @@ function closeAllDropdowns() {
       mobileMenu.classList.add("active");
     }
   });
+     
      // klik di dalam menu jangan tutup
-  mobileMenu.addEventListener("click", function (e) {
-    e.stopPropagation();
-  });
+  mobileMenu.addEventListener("click", e => e.stopPropagation());
+     
       // fiks klik asal
 document.addEventListener("click", function () {
     if (mobileMenu.classList.contains("active")) {
@@ -480,10 +489,10 @@ document.addEventListener("click", function () {
     }
   });
 
+     // Toggle dropdown submenu "Lainnya"
   function toggleDropdown(e, el) {
     e.preventDefault();
     e.stopPropagation();
-
     const dropdown = el.parentElement.querySelector(".mobile-dropdown");
     const isOpen = dropdown.style.display === "block";
 
