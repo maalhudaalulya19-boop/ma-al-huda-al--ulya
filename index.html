@@ -425,8 +425,40 @@ function closeAllDropdowns() {
   }
   // toggle menu ☰
   menuToggle.addEventListener("click", function (e) {
-    e.stopPropagation();
+  e.stopPropagation();
+  mobileMenu.classList.toggle("active");
+});
+   
+   /* MOBILE NAV */
+#mobileMenu {
+  overflow: hidden;
+  max-height: 0; /* default tertutup */
+  transition: max-height 0.3s ease-out;
+}
 
+/* saat aktif (menu terbuka) */
+#mobileMenu.active {
+  max-height: 400px; /* cukup untuk tampung item menu */
+
+ .menu-toggle span {
+  display: block;
+  width: 25px;
+  height: 2px;
+  margin: 4px 0;
+  background: #333;
+  transition: all 0.3s ease;
+}
+
+.menu-toggle.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px,5px);
+}
+.menu-toggle.open span:nth-child(2) {
+  opacity: 0;
+}
+.menu-toggle.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px,-5px);
+}
+ menuToggle.classList.toggle("open");
     const isOpen = mobileMenu.classList.contains("active");
 
     if (isOpen) {
