@@ -266,6 +266,25 @@
             section {
                 padding: 40px 20px;
             }
+         .menu-toggle span {
+  display: block;
+  width: 26px;
+  height: 3px;
+  margin: 5px 0;
+  background: #2c1f0f;
+  transition: 0.3s;
+  border-radius: 2px;
+}
+
+.menu-toggle.open span:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+.menu-toggle.open span:nth-child(2) {
+  opacity: 0;
+}
+.menu-toggle.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
          /* Menu mobile default tertutup */
 #mobileMenu {
   overflow: hidden;
@@ -305,7 +324,11 @@
     </nav>
 
       <!-- TOMBOL MOBILE -->
-        <button class="menu-toggle" id="menuToggle">☰</button>
+        <button class="menu-toggle" id="menuToggle">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
       </div>
 </header>
      <!-- MENU MOBILE -->
@@ -418,7 +441,7 @@
 <section id="kontak">
   <div class="container">
     <h2>Kontak</h2>
-    <p>Jl. Jalan Arteri Dsn. Pulo Rt. 03 Rw. 04 Ds. Putat Kec. Purwodadi Kab Grobogan. | 📞 +62 823-2412-8887 | 📧 ma.alhudaalulya19@gmail.com</p>
+    <p>Jl. Arteri Dsn. Pulo  03  04 Ds. Putat Kec. Purwodadi Kab Grobogan. | 📞 +62 823-2412-8887 | 📧 ma.alhudaalulya19@gmail.com</p>
   </div>
 </section>
 <footer>
@@ -426,8 +449,8 @@
 </footer>
     <script>
   const menuToggle = document.getElementById("menuToggle");
-  const mobileMenu = document.getElementById("mobileMenu");
-  const mobileDropdowns = document.querySelectorAll(".mobile-dropdown");
+const mobileMenu = document.getElementById("mobileMenu");
+const mobileDropdowns = document.querySelectorAll(".mobile-dropdown");
         
 function closeAllDropdowns() {
   mobileDropdowns.forEach(drop => drop.style.display = "none");
@@ -435,14 +458,8 @@ function closeAllDropdowns() {
   // toggle menu ☰ dengan animasi slide
   menuToggle.addEventListener("click", function (e) {
   e.stopPropagation();
-  const isOpen = mobileMenu.classList.contains("active");
-
-  if (isOpen) {
-    mobileMenu.classList.remove("active");
-    closeAllDropdowns();
-  } else {
-    mobileMenu.classList.add("active");
-  }
+  mobileMenu.classList.toggle("active");
+  menuToggle.classList.toggle("open");
 });
    
 /* saat aktif (menu terbuka) */
@@ -485,6 +502,7 @@ function closeAllDropdowns() {
 document.addEventListener("click", function () {
     if (mobileMenu.classList.contains("active")) {
       mobileMenu.classList.remove("active");
+     menuToggle.classList.remove("open");
       closeAllDropdowns();
     }
   });
@@ -497,16 +515,16 @@ document.addEventListener("click", function () {
     const isOpen = dropdown.style.display === "block";
 
     closeAllDropdowns();
-    if (!isOpen) {
-      dropdown.style.display = "block";
+  if (!isOpen) dropdown.style.display = "block";
     }
-  }
+  
      // Tutup menu mobile saat link section diklik, KECUALI tombol dropdown toggle "Lainnya"
 document.querySelectorAll("#mobileMenu > ul > li > a").forEach(link => {
   if (!link.hasAttribute("onclick")) { // ← abaikan tombol "Lainnya"
     link.addEventListener("click", () => {
-      closeAllDropdowns();
+      menuToggle.classList.remove("open");
       mobileMenu.classList.remove("active");
+     closeAllDropdowns();
     });
   }
 });
