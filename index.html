@@ -461,50 +461,15 @@ function closeAllDropdowns() {
   mobileMenu.classList.toggle("active");
   menuToggle.classList.toggle("open");
 });
-   
-/* saat aktif (menu terbuka) */
-#mobileMenu.active {
-  max-height: 400px; /* cukup untuk tampung item menu */
-
- .menu-toggle span {
-  display: block;
-  width: 25px;
-  height: 2px;
-  margin: 4px 0;
-  background: #333;
-  transition: all 0.3s ease;
-}
-
-.menu-toggle.open span:nth-child(1) {
-  transform: rotate(45deg) translate(5px,5px);
-}
-.menu-toggle.open span:nth-child(2) {
-  opacity: 0;
-}
-.menu-toggle.open span:nth-child(3) {
-  transform: rotate(-45deg) translate(5px,-5px);
-}
- menuToggle.classList.toggle("open");
-    const isOpen = mobileMenu.classList.contains("active");
-
-    if (isOpen) {
-      mobileMenu.classList.remove("active");
-      closeAllDropdowns(); // ← RESET SUBMENU
-    } else {
-      mobileMenu.classList.add("active");
-    }
-  });
      
      // klik di dalam menu jangan tutup
   mobileMenu.addEventListener("click", e => e.stopPropagation());
      
       // fiks klik asal
 document.addEventListener("click", function () {
-    if (mobileMenu.classList.contains("active")) {
       mobileMenu.classList.remove("active");
      menuToggle.classList.remove("open");
       closeAllDropdowns();
-    }
   });
 
      // Toggle dropdown submenu "Lainnya"
