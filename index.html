@@ -126,14 +126,25 @@
             font-weight: bold;
         }
         /* Dropdown */
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #fff;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-            padding: 10px;
-            border-radius: 8px;
-        }
+        .mobile-dropdown {
+  display: none;
+  width: 100%;
+  background: #fff;
+  padding: 12px 0;
+  margin-top: 6px;
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  text-align: center;
+  position: relative;
+  overflow: visible;
+}
+     .nav-mobile .dropdown a {
+  display: block;
+  padding: 8px 0;
+}
+     .mobile-dropdown.active {
+  display: block;
+}
         section {
             padding: 40px 20px;
             padding-left: 20px;
@@ -225,10 +236,6 @@
       .menu-toggle {
             display: none;
           }
-        
-        .nav-mobile.active {
-            display: block;
-          }
         }
         /* ===== MOBILE ===== */
         @media (max-width: 768px) {
@@ -248,16 +255,24 @@
                 display: none; 
             }
             .nav-mobile {
-                position: fixed;
-                top: 95px; 
-                left: 0;
-                width: 100%;
-                background: #f7f2e8;
-                z-index: 1100;
-            }
-            nav.active {
-                display: block;
-            }
+  position: fixed;
+  top: 95px;
+  left: 0;
+  width: 100%;
+  background: #f7f2e8;
+  padding: 10px 0;
+  transform: translateY(-20px);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  max-height: none; /* ← jangan dibatasi */
+  overflow: visible; /* ← biar gak kepotong */
+}
+            .nav-mobile.active {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
             nav ul {
                 flex-direction: column;
                 text-align: center;
@@ -441,7 +456,9 @@
 <section id="kontak">
   <div class="container">
     <h2>Kontak</h2>
-    <p>Jl. Arteri Dsn. Pulo  03  04 Ds. Putat Kec. Purwodadi Kab Grobogan. | 📞 +62 823-2412-8887 | 📧 ma.alhudaalulya19@gmail.com</p>
+    <p>Jl. Arteri Dsn. Pulo  03  04 Ds. Putat Kec. Purwodadi Kab Grobogan. 
+     | 📞 +62 823-2412-8887 
+     | 📧 ma.alhudaalulya19@gmail.com</p>
   </div>
 </section>
 <footer>
@@ -474,14 +491,21 @@ document.addEventListener("click", function () {
 
      // Toggle dropdown submenu "Lainnya"
   function toggleDropdown(e, el) {
-    e.preventDefault();
-    e.stopPropagation();
-    const dropdown = el.parentElement.querySelector(".mobile-dropdown");
-    const isOpen = dropdown.style.display === "block";
+  e.preventDefault();
+  e.stopPropagation();
+  const dropdown = el.parentElement.querySelector(".mobile-dropdown");
+  const isOpen = dropdown.classList.contains("active");
 
     closeAllDropdowns();
-  if (!isOpen) dropdown.style.display = "block";
-    }
+  if (!isOpen) {
+    dropdown.classList.add("active");
+  }
+}
+     function closeAllDropdowns() {
+  document.querySelectorAll(".mobile-dropdown").forEach(drop => {
+    drop.classList.remove("active");
+  });
+}
   
      // Tutup menu mobile saat link section diklik, KECUALI tombol dropdown toggle "Lainnya"
 document.querySelectorAll("#mobileMenu > ul > li > a").forEach(link => {
