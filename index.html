@@ -125,6 +125,23 @@
             color: #333;
             font-weight: bold;
         }
+     /* Dropdown desktop default tersembunyi */
+.nav-desktop .dropdown-content {
+  display: none;
+  position: absolute;
+  top: 35px;
+  right: 0;
+  background: white;
+  min-width: 160px;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* Muncul saat hover */
+.nav-desktop .dropdown:hover .dropdown-content {
+  display: block;
+}
         /* Dropdown */
         .mobile-dropdown {
   display: none;
@@ -311,6 +328,14 @@
 #mobileMenu.active {
   max-height: 400px;
 }
+         #mobileMenu {
+  overflow: visible;
+  max-height: none;
+}
+
+.nav-mobile .mobile-dropdown.active {
+  display: block;
+}
         }
     </style>
 </head>
@@ -354,13 +379,13 @@
       <li><a href="#struktur">Struktur</a></li>
       <li><a href="#kurikulum">Kurikulum</a></li>
       <li class="dropdown">
-          <a href="#" onclick="toggleDropdown(event, this)">Lainnya ▾</a>
-          <div class="dropdown-content mobile-dropdown">
-            <a href="#galeri">Galeri</a><br>
-            <a href="#berita">Berita</a><br>
-            <a href="#kontak">Kontak</a>
-          </div>
-        </li>
+  <a href="#" onclick="toggleDropdown(event, this)">Lainnya ▾</a>
+  <div class="dropdown-content mobile-dropdown">
+    <a href="#galeri">Galeri</a><br>
+    <a href="#berita">Berita</a><br>
+    <a href="#kontak">Kontak</a>
+  </div>
+</li>
         </ul>
     </nav>
     <!-- HERO -->
@@ -467,11 +492,13 @@
     <script>
   const menuToggle = document.getElementById("menuToggle");
 const mobileMenu = document.getElementById("mobileMenu");
-const mobileDropdowns = document.querySelectorAll(".mobile-dropdown");
         
 function closeAllDropdowns() {
-  mobileDropdowns.forEach(drop => drop.style.display = "none");
+  document.querySelectorAll(".mobile-dropdown").forEach(drop => {
+    drop.classList.remove("active");
+  });
 }
+     
   // toggle menu ☰ dengan animasi slide
   menuToggle.addEventListener("click", function (e) {
   e.stopPropagation();
@@ -484,10 +511,10 @@ function closeAllDropdowns() {
      
       // fiks klik asal
 document.addEventListener("click", function () {
-      mobileMenu.classList.remove("active");
-     menuToggle.classList.remove("open");
-      closeAllDropdowns();
-  });
+  mobileMenu.classList.remove("active");
+  menuToggle.classList.remove("open");
+  closeAllDropdowns();
+});
 
      // Toggle dropdown submenu "Lainnya"
   function toggleDropdown(e, el) {
@@ -497,9 +524,7 @@ document.addEventListener("click", function () {
   const isOpen = dropdown.classList.contains("active");
 
     closeAllDropdowns();
-  if (!isOpen) {
-    dropdown.classList.add("active");
-  }
+  if (!isOpen) dropdown.classList.add("active");
 }
      function closeAllDropdowns() {
   document.querySelectorAll(".mobile-dropdown").forEach(drop => {
