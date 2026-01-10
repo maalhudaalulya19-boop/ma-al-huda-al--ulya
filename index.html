@@ -239,9 +239,7 @@
         .menu-toggle {
               display: none;
         }
-        .nav-mobile {
-              display: none;
-        }
+       
         /* ===== DESKTOP ===== */
         @media (min-width: 769px) {
           nav {
@@ -254,6 +252,9 @@
             display: none;
           }
         }
+     .nav-mobile {
+  display: block;
+}
         /* ===== MOBILE ===== */
         @media (max-width: 768px) {
             .hero {
@@ -344,7 +345,7 @@
         <li><a href="#struktur">Struktur</a></li>
         <li><a href="#kurikulum">Kurikulum</a></li>
         <li class="dropdown">
-          <a href="#">Lainnya ▾</a>
+          <a href="#" onclick="return false;">Lainnya ▾</a>
           <div class="dropdown-content">
             <a href="#galeri">Galeri</a><br>
             <a href="#berita">Berita</a><br>
