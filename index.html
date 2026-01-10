@@ -126,22 +126,28 @@
             font-weight: bold;
         }
      /* Dropdown desktop default tersembunyi */
+.nav-desktop .dropdown {
+  position: relative;
+}
+
 .nav-desktop .dropdown-content {
   display: none;
   position: absolute;
-  top: 35px;
+  top: 100%;
   right: 0;
   background: white;
   min-width: 160px;
   padding: 10px;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  z-index: 9999;
 }
 
-/* Muncul saat hover */
+     /* Muncul saat hover */
 .nav-desktop .dropdown:hover .dropdown-content {
   display: block;
 }
+
         /* Dropdown */
         .mobile-dropdown {
   display: none;
