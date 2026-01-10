@@ -251,6 +251,14 @@
           nav {
             display: block;
           }
+          .nav-mobile {
+    display: none;
+  }
+
+  .mobile-dropdown {
+    display: none !important;
+  }
+}
        .nav-desktop .dropdown:hover .dropdown-content{ 
             display: block; 
           } 
@@ -278,6 +286,9 @@
             .nav-desktop { 
                 display: none; 
             }
+          .nav-desktop .dropdown-content {
+    display: none !important;
+  }
            .nav-mobile {
   position: fixed;
   top: 95px;
@@ -525,6 +536,12 @@ document.addEventListener("click", function (e) {
   }
 });
 
+     window.addEventListener("resize", () => {
+  if (window.innerWidth >= 769) {
+    document.querySelectorAll(".mobile-dropdown")
+      .forEach(d => d.classList.remove("active"));
+  }
+});
      // Toggle dropdown submenu "Lainnya"
   function toggleDropdown(e, el) {
   e.preventDefault();
