@@ -271,24 +271,19 @@
             .nav-desktop { 
                 display: none; 
             }
-            .nav-mobile {
+           .nav-mobile {
   position: fixed;
   top: 95px;
   left: 0;
   width: 100%;
   background: #f7f2e8;
-  padding: 10px 0;
-  transform: translateY(-20px);
-  opacity: 0;
-  pointer-events: none;
-  transition: transform 0.3s ease, opacity 0.3s ease;
-  max-height: none; /* ← jangan dibatasi */
-  overflow: visible; /* ← biar gak kepotong */
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.35s ease;
+  z-index: 999;
 }
-            .nav-mobile.active {
-  transform: translateY(0);
-  opacity: 1;
-  pointer-events: auto;
+.nav-mobile.active {
+  max-height: 500px;
 }
             nav ul {
                 flex-direction: column;
@@ -332,12 +327,6 @@
   display: none;
 }
 
-.nav-mobile .dropdown-content.active {
-  display: block;
-}
-.nav-mobile .mobile-dropdown.active {
-  display: block;
-}   
         }
     </style>
 </head>
@@ -484,8 +473,8 @@
   <div class="container">
     <h2>Kontak</h2>
     <p>Jl. Arteri Dsn. Pulo  03  04 Ds. Putat Kec. Purwodadi Kab Grobogan. 
-     | 📞 +62 823-2412-8887 
-     | 📧 ma.alhudaalulya19@gmail.com</p>
+     <p>| 📞 +62 823-2412-8887 
+     <p>| 📧 ma.alhudaalulya19@gmail.com</p>
   </div>
 </section>
 <footer>
@@ -507,14 +496,10 @@ function closeAllDropdowns() {
   mobileMenu.classList.toggle("active");
   menuToggle.classList.toggle("open");
 });
-     
-     // klik di dalam menu jangan tutup
-  mobileMenu.addEventListener("click", e => e.stopPropagation());
-     
+    
       // fiks klik asal
 document.addEventListener("click", function (e) {
-  // hanya tutup kalau menu mobile sedang aktif
-  if (mobileMenu.classList.contains("active")) {
+  if (!mobileMenu.contains(e.target) && !menuToggle.contains(e.target)) {
     mobileMenu.classList.remove("active");
     menuToggle.classList.remove("open");
     closeAllDropdowns();
