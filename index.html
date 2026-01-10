@@ -328,14 +328,16 @@
 #mobileMenu.active {
   max-height: 400px;
 }
-         #mobileMenu {
-  overflow: visible;
-  max-height: none;
+.nav-mobile .dropdown-content {
+  display: none;
 }
 
-.nav-mobile .mobile-dropdown.active {
+.nav-mobile .dropdown-content.active {
   display: block;
 }
+.nav-mobile .mobile-dropdown.active {
+  display: block;
+}   
         }
     </style>
 </head>
@@ -510,10 +512,13 @@ function closeAllDropdowns() {
   mobileMenu.addEventListener("click", e => e.stopPropagation());
      
       // fiks klik asal
-document.addEventListener("click", function () {
-  mobileMenu.classList.remove("active");
-  menuToggle.classList.remove("open");
-  closeAllDropdowns();
+document.addEventListener("click", function (e) {
+  // hanya tutup kalau menu mobile sedang aktif
+  if (mobileMenu.classList.contains("active")) {
+    mobileMenu.classList.remove("active");
+    menuToggle.classList.remove("open");
+    closeAllDropdowns();
+  }
 });
 
      // Toggle dropdown submenu "Lainnya"
