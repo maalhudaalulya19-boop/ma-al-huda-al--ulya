@@ -324,8 +324,17 @@
 #mobileMenu.active {
   max-height: 400px;
 }
-.nav-mobile .dropdown-content {
+.mobile-dropdown {
   display: none;
+  background: #fff;
+  padding: 12px 0;
+  margin-top: 6px;
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.mobile-dropdown.active {
+  display: block;
 }
 
         }
@@ -372,7 +381,7 @@
       <li><a href="#kurikulum">Kurikulum</a></li>
       <li class="dropdown">
   <a href="#" onclick="toggleDropdown(event, this)">Lainnya ▾</a>
-  <div class="dropdown-content mobile-dropdown">
+  <div class="mobile-dropdown">
     <a href="#galeri">Galeri</a><br>
     <a href="#berita">Berita</a><br>
     <a href="#kontak">Kontak</a>
@@ -500,10 +509,13 @@ function closeAllDropdowns() {
     
       // fiks klik asal
 document.addEventListener("click", function (e) {
-  if (!mobileMenu.contains(e.target) && !menuToggle.contains(e.target)) {
-    mobileMenu.classList.remove("active");
-    menuToggle.classList.remove("open");
-    closeAllDropdowns();
+  // HANYA URUS MOBILE
+  if (window.innerWidth <= 768) {
+    if (!mobileMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+      mobileMenu.classList.remove("active");
+      menuToggle.classList.remove("open");
+      closeAllDropdowns();
+    }
   }
 });
 
