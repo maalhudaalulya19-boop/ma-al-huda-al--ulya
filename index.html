@@ -273,14 +273,29 @@
   .mobile-dropdown {
     display: none !important;
   }
-}
+     .nav-desktop .dropdown-content {
+    display: block;                 /* WAJIB untuk animasi */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-15px);   /* dari kiri */
+      pointer-events: none;
+    
+    transition:
+      opacity 0.2s ease 0.05s,
+      transform 0.35s cubic-bezier(.22,1,.36,1);
+  }
        .nav-desktop .dropdown:hover .dropdown-content{ 
-            display: block; 
-          } 
+            display: block;
+        opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+        pointer-events: auto;
+  }
       .menu-toggle {
             }
      .nav-mobile {
 }
+        }     
      
         /* ===== MOBILE ===== */
         @media (max-width: 768px) {
