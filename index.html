@@ -575,6 +575,14 @@ document.querySelectorAll("#mobileMenu > ul > li > a").forEach(link => {
     });
   }
 });
+     /* Tutup menu & dropdown saat submenu diklik */
+document.querySelectorAll(".mobile-dropdown a").forEach(link => {
+  link.addEventListener("click", () => {
+    closeAllDropdowns();
+    mobileMenu.classList.remove("active");
+    menuToggle.classList.remove("open");
+  });
+});
 </script>
 </body>
 </html>
