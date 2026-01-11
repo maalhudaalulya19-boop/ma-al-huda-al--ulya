@@ -124,22 +124,9 @@
             color: #333;
             font-weight: bold;
         }
-     /* Dropdown desktop default tersembunyi */
-.nav-desktop .dropdown {
-  position: relative;
-}
+     
 
-.nav-desktop .dropdown-content {
-  position: absolute;
-  top: 100%;
-  right: 0;
-  background: white;
-  min-width: 160px;
-  padding: 10px;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-  z-index: 9999;
-}
+
 
      /* Muncul saat hover */
 .nav-desktop .dropdown:hover .dropdown-content {
@@ -268,20 +255,31 @@
           }
           .nav-mobile {
   }
-
+/* Dropdown desktop default tersembunyi */
+.nav-desktop .dropdown {
+  position: relative;
+}
   .mobile-dropdown {
     display: none !important;
   }
-         .nav-desktop .dropdown {
-    position: relative;
-  }
+         .nav-desktop .dropdown-content {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: white;
+  min-width: 160px;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  z-index: 9999;
+}
+         /* STATE AWAL (TERTUTUP) */
      .nav-desktop .dropdown-content {
-    display: block;                 /* WAJIB untuk animasi */
     opacity: 0;
-    visibility: hidden;
     transform: translateX(-60px);   /* dari kiri */
       pointer-events: none;
-    
+
+      /* SLOWMO SAMA MASUK & KELUAR */
     transition:
       opacity 0.55s ease,
       transform 0.8s cubic-bezier(.16,1,.3,1);
@@ -289,7 +287,6 @@
        .nav-desktop .dropdown:hover .dropdown-content{ 
             display: block;
         opacity: 1;
-    visibility: visible;
     transform: translateX(0);
         pointer-events: auto;
   }
