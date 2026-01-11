@@ -46,13 +46,12 @@
       font-size: 1.2rem;
       margin-top: 8px;
     }
-        * {
-            box-sizing: border-box;
-        }
+        
         body {
             margin: 0;
             font-family: 'Poppins', sans-serif;
-            background-color: #f7f2e8; 
+            background-color: #f7f2e8;
+         line-height: 1.6;
             color: #333;
         }
         header {
@@ -173,15 +172,7 @@
      .mobile-dropdown.active {
   display: block;
 }
-        section {
-            padding: 40px 20px;
-            padding-left: 20px;
-            padding-right: 20px;
-            margin: auto;
-        }
-        section {
-            scroll-margin-top: 110px; /* tinggi header + jarak aman */
-        }
+        
      /* SECTION SEBAGAI BACKGROUND */
         section {
           padding: 60px 20px;
@@ -195,6 +186,10 @@
 
 #visi-misi ul {
   padding-left: 20px;
+}
+     #kontak {
+  background-color: #e5d7bd;
+  border-top: 1px solid rgba(255,255,255,0.5);
 }
 
       /* ISI DI TENGAH */
@@ -285,7 +280,6 @@
       .menu-toggle {
             display: none;
           }
-        }
      .nav-mobile {
   display: block;
 }
@@ -380,7 +374,7 @@
         <!-- MENU DESKTOP -->
     <nav class="nav-desktop">
       <ul>
-       <li><a href="#">Beranda</a></li>
+       <li><a href="#beranda">Beranda</a></li>
         <li><a href="#profil">Profil</a></li>
         <li><a href="#visi-misi">Visi Misi</a></li>
         <li><a href="#struktur">Struktur</a></li>
@@ -407,7 +401,7 @@
      <!-- MENU MOBILE -->
   <nav class="nav-mobile" id="mobileMenu">
     <ul>
-     <li><a href="#">Beranda</a></li>
+     <li><a href="#beranda">Beranda</a></li>
       <li><a href="#profil">Profil</a></li>
       <li><a href="#visi-misi">Visi Misi</a></li>
       <li><a href="#struktur">Struktur</a></li>
@@ -423,7 +417,7 @@
         </ul>
     </nav>
     <!-- HERO -->
-<section class="hero">
+<section class="hero" id="beranda">
   <div>
     <h1>MA AL-HUDA AL-'ULYA</h1>
     <p>Unggul, Religius & Berprestasi — Siap Mencetak Generasi Masa Depan</p>
@@ -515,9 +509,9 @@
 <section id="kontak">
   <div class="container">
     <h2>Kontak</h2>
-    <p>Jl. Arteri Dsn. Pulo  03  04 Ds. Putat Kec. Purwodadi Kab Grobogan. 
-     <p>| 📞 +62 823-2412-8887 
-     <p>| 📧 ma.alhudaalulya19@gmail.com</p>
+    <p>Jl. Arteri Dsn. Pulo  03  04 Ds. Putat Kec. Purwodadi Kab Grobogan.</p> 
+     <p>📞 +62 823-2412-8887</p> 
+     <p>📧 ma.alhudaalulya19@gmail.com</p>
   </div>
 </section>
 <footer>
