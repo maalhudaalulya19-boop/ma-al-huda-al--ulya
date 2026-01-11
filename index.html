@@ -294,20 +294,23 @@
           .nav-desktop .dropdown-content {
     display: none !important;
   }
-           .nav-mobile {
-  position: fixed;
-  top: 95px;
-  left: 0;
-  width: 100%;
-  background: #f7f2e8;
-  overflow: hidden;
-  max-height: 0;
-  transition: max-height 0.35s ease;
-  z-index: 999;
-}
-.nav-mobile.active {
-  max-height: 500px;
-}
+          .nav-mobile {
+    position: fixed;
+    top: 95px;
+    left: 0;
+    width: 100%;
+    background: #f7f2e8;
+    z-index: 999;
+
+    display: none;
+  }
+          .nav-mobile.active {
+    display: block;
+  }
+         .nav-mobile ul {
+    padding: 10px 0;
+  }
+  
             nav ul {
                 flex-direction: column;
                 text-align: center;
@@ -335,17 +338,7 @@
 .menu-toggle.open span:nth-child(3) {
   transform: rotate(-45deg) translate(6px, -6px);
 }
-         /* Menu mobile default tertutup */
-#mobileMenu {
-  overflow: hidden;
-  max-height: 0;
-  transition: max-height 0.3s ease-out;
-}
 
-/* Saat menu dibuka */
-#mobileMenu.active {
-  max-height: 400px;
-}
 .mobile-dropdown {
   display: none;
  position: static;
