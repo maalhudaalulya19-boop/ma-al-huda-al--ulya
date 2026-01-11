@@ -352,11 +352,14 @@
 .mobile-dropdown.active {
   display: block;
 }
-
+html {
+  scroll-behavior: smooth;
+}
         }
     </style>
 </head>
 <body>
+ <body id="top">
  <!-- HEADER NAVBAR -->
 <header>
       <div class="header-inner">
@@ -365,6 +368,7 @@
         <!-- MENU DESKTOP -->
     <nav class="nav-desktop">
       <ul>
+       <li><a href="#top">Beranda</a></li>
         <li><a href="#profil">Profil</a></li>
         <li><a href="#visi-misi">Visi Misi</a></li>
         <li><a href="#struktur">Struktur</a></li>
@@ -391,6 +395,7 @@
      <!-- MENU MOBILE -->
   <nav class="nav-mobile" id="mobileMenu">
     <ul>
+     <li><a href="#top">Beranda</a></li>
       <li><a href="#profil">Profil</a></li>
       <li><a href="#visi-misi">Visi Misi</a></li>
       <li><a href="#struktur">Struktur</a></li>
