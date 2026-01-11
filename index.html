@@ -11,6 +11,7 @@
      /* GENERAL */
     * {box-sizing: border-box;}
     body {
+     padding-top: 95px;
       font-family: 'Poppins', sans-serif;
       margin: 0; padding: 0;
       line-height: 1.6;
@@ -24,7 +25,6 @@
      .section-soft  { background-color: #efe4cc; }
         .hero {
             height: 260px;
-         margin-top: 95px;
             background: 
                 linear-gradient(rgba(0,0,0,.4), rgba(0,0,0,.4)),
                 url('foto-header.jpg.png') center/cover no-repeat;
@@ -130,7 +130,6 @@
 }
 
 .nav-desktop .dropdown-content {
-  display: none;
   position: absolute;
   top: 100%;
   right: 0;
@@ -273,16 +272,19 @@
   .mobile-dropdown {
     display: none !important;
   }
+         .nav-desktop .dropdown {
+    position: relative;
+  }
      .nav-desktop .dropdown-content {
     display: block;                 /* WAJIB untuk animasi */
     opacity: 0;
     visibility: hidden;
-    transform: translateX(-40px);   /* dari kiri */
+    transform: translateX(-60px);   /* dari kiri */
       pointer-events: none;
     
     transition:
-      opacity 0.4s ease;
-      transform 0.55s cubic-bezier(.16,1,.3,1),
+      opacity 0.55s ease,
+      transform 0.8s cubic-bezier(.16,1,.3,1);
   }
        .nav-desktop .dropdown:hover .dropdown-content{ 
             display: block;
