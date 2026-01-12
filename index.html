@@ -162,6 +162,23 @@
       border-bottom: 1px solid #ffffff; /* garis tipis putih */
       padding-bottom: 20px; /* lebih rapat */
 }
+     .shape {
+  position: absolute;
+  width: 60px; height: 60px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 50%;
+  animation: float 6s ease infinite;
+}
+
+.shape1 { top: 10%; left: 15%; animation-delay: 0s; }
+.shape2 { top: 40%; left: 80%; animation-delay: 2s; }
+.shape3 { top: 70%; left: 30%; animation-delay: 4s; }
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0px); }
+}
 
       /* ISI DI TENGAH */
         .container {
@@ -464,6 +481,12 @@
     <!-- HERO -->
 <section class="hero" id="beranda">
   <div class="hero-overlay"></div>
+
+ <div class="hero-animations">
+  <span class="shape shape1"></span>
+  <span class="shape shape2"></span>
+  <span class="shape shape3"></span>
+</div>
  
    <div class="hero-content">
     <h1>MA AL-HUDA AL-'ULYA</h1>
