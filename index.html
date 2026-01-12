@@ -859,15 +859,16 @@ document.querySelectorAll(".mobile-dropdown a").forEach(link => {
     menuToggle.classList.remove("open");
   });
 });
-     document.addEventListener("DOMContentLoaded", () => {
+    document.addEventListener("DOMContentLoaded", () => {
   const scrollTopBtn = document.getElementById("scrollTopBtn");
   const heroSection = document.querySelector(".hero");
 
   if (!scrollTopBtn || !heroSection) return;
 
   window.addEventListener("scroll", () => {
-    heroSection.offsetTop + heroSection.offsetHeight;
-   
+    const heroBottom =
+      heroSection.offsetTop + heroSection.offsetHeight;
+
     if (window.scrollY > heroBottom - 80) {
       scrollTopBtn.classList.add("show");
     } else {
@@ -877,9 +878,10 @@ document.querySelectorAll(".mobile-dropdown a").forEach(link => {
 
 // klik → scroll halus ke atas
 scrollTopBtn.addEventListener("click", () => {
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
   });
 });
 </script>
