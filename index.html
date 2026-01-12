@@ -190,7 +190,7 @@
 }
      .hero {
   position: relative;
-  min-height: 100vh;
+  min-height: 65vh;
   overflow: hidden;
 }
 
@@ -203,29 +203,9 @@
 
 .hero-content {
   position: relative;
-  z-index: 2;
+  z-index: 3;
 }
 
-     .dot {
-  position: absolute;
-      box-shadow: 0 0 6px rgba(255,255,255,0.5);
-  width: 10px;
-  height: 10px;
-  background: rgba(255,255,255,0.8);
-  border-radius: 50%;
-  animation: floatDot 6s ease-in-out infinite;
-}
-
-/* posisi berbeda */
-.dot1 { top: 20%; left: 15%; animation-delay: 0s; }
-.dot2 { top: 50%; left: 70%; animation-delay: 2s; }
-.dot3 { top: 75%; left: 40%; animation-delay: 4s; }
-
-@keyframes floatDot {
-  0%   { transform: translateY(0); opacity: .6; }
-  50%  { transform: translateY(-20px); opacity: 1; }
-  100% { transform: translateY(0); opacity: .6; }
-}
      .stroke {
   position: absolute;
       filter: blur(0.3px);
@@ -270,7 +250,7 @@
   opacity: 0.15;
   top: 15%;
   right: 10%;
-  z-index: 1;
+  z-index: 2;
 
   animation: floatHalftone 8s ease-in-out infinite;
 }
@@ -459,10 +439,21 @@
              background-position: center 15%;
             }
          .hero-halftone {
-    width: 180px;
-    height: 180px;
-    opacity: 0.12;
+    right: auto;
+    left: 50%;
+    top: 70%;
+    transform: translateX(-50%);
+    opacity: 0.1;
   }
+         
+         .hero-stroke {
+  width: 220px;
+  left: 6%;
+  bottom: 8%;
+  top: auto;
+
+  opacity: 0.5;
+}
          .stroke {
     display: none;
   }
