@@ -262,6 +262,45 @@
     opacity: 0;
   }
 }
+     .hero-halftone {
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  background: url("halftone.png") center/contain no-repeat;
+  opacity: 0.15;
+  top: 15%;
+  right: 10%;
+  z-index: 1;
+
+  animation: floatHalftone 8s ease-in-out infinite;
+}
+
+@keyframes floatHalftone {
+  0%   { transform: translateY(0) scale(1); }
+  50%  { transform: translateY(-12px) scale(1.03); }
+  100% { transform: translateY(0) scale(1); }
+}
+     .hero-stroke {
+  position: absolute;
+  width: 320px;
+  top: 60%;
+  left: 8%;
+  z-index: 1;
+
+  animation: strokeFloat 6s ease-in-out infinite;
+}
+
+@keyframes strokeFloat {
+  0% {
+    transform: translateX(0) translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateX(10px) translateY(-6px) rotate(2deg);
+  }
+  100% {
+    transform: translateX(0) translateY(0) rotate(0deg);
+  }
+}
 
       /* ISI DI TENGAH */
         .container {
@@ -419,6 +458,11 @@
     padding-top: 95px;
              background-position: center 15%;
             }
+         .hero-halftone {
+    width: 180px;
+    height: 180px;
+    opacity: 0.12;
+  }
          .stroke {
     display: none;
   }
@@ -573,15 +617,14 @@
 <section class="hero" id="beranda">
   <div class="hero-overlay"></div>
 
- <div class="hero-animations">
-  <span class="dot dot1"></span>
-    <span class="dot dot2"></span>
-    <span class="dot dot3"></span>
+ <div class="hero-halftone"></div>
+<svg class="hero-stroke" viewBox="0 0 400 200">
+  <path d="M20 120 C120 40, 280 200, 380 80"
+        fill="none"
+        stroke="rgba(255,255,255,0.6)"
+        stroke-width="3"
+        stroke-linecap="round"/></svg>
 
-    <span class="stroke stroke1"></span>
-    <span class="stroke stroke2"></span>
-</div>
- 
    <div class="hero-content">
     <h1>MA AL-HUDA AL-'ULYA</h1>
     <p>Unggul, Religius & Berprestasi — Siap Mencetak Generasi Masa Depan</p>
