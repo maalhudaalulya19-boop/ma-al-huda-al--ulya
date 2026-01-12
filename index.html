@@ -338,7 +338,7 @@
             text-align: center;
             padding: 20px;
             background-color: #e5d7bd;
-            margin-top: 0;   /* WAJIB */
+            margin-bottom: 0 !important;   /* WAJIB */
             }
         .menu-toggle {
               display: none;
@@ -574,7 +574,7 @@
   font-size: 20px;
   font-weight: bold;
   cursor: pointer;
-  z-index: 9999;
+  z-index: 10000;
 
   /* efek awal (tersembunyi) */
   opacity: 0;
@@ -779,6 +779,10 @@
 <footer>
     © 2025 MA AL-HUDA AL-'ULYA | All copyrights are protected by Allah
 </footer>
+  <!-- SCROLL TO TOP BUTTON -->
+<button id="scrollTopBtn" aria-label="Scroll to top">
+  ↑
+</button>
     <script>
   const menuToggle = document.getElementById("menuToggle");
 const mobileMenu = document.getElementById("mobileMenu");
@@ -848,18 +852,21 @@ document.querySelectorAll(".mobile-dropdown a").forEach(link => {
     menuToggle.classList.remove("open");
   });
 });
-     const scrollTopBtn = document.getElementById("scrollTopBtn");
-const heroSection = document.querySelector(".hero");
+     document.addEventListener("DOMContentLoaded", () => {
+  const scrollTopBtn = document.getElementById("scrollTopBtn");
+  const heroSection = document.querySelector(".hero");
 
-window.addEventListener("scroll", () => {
-  const heroBottom = heroSection.offsetHeight;
+  if (!scrollTopBtn || !heroSection) return;
 
-  if (window.scrollY > heroBottom - 80) {
-    scrollTopBtn.classList.add("show");
-  } else {
-    scrollTopBtn.classList.remove("show");
-  }
-});
+  window.addEventListener("scroll", () => {
+    const heroBottom = heroSection.offsetHeight;
+
+    if (window.scrollY > heroBottom - 80) {
+      scrollTopBtn.classList.add("show");
+    } else {
+      scrollTopBtn.classList.remove("show");
+    }
+  });
 
 // klik → scroll halus ke atas
 scrollTopBtn.addEventListener("click", () => {
@@ -869,9 +876,5 @@ scrollTopBtn.addEventListener("click", () => {
   });
 });
 </script>
-  <!-- SCROLL TO TOP BUTTON -->
-<button id="scrollTopBtn" aria-label="Scroll to top">
-  ↑
-</button>
 </body>
 </html>
